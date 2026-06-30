@@ -20,7 +20,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; height: 100%; }
+html { font-size: 16px; scroll-snap-type: y mandatory; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -32,8 +32,6 @@ body {
   font-family: var(--sans);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
-  height: 100vh;
 }
 
 body.light-theme { color: #1a1816; }
@@ -198,11 +196,6 @@ body.light-theme .scene-dots button::before { color: rgba(0,0,0,.5); }
 /* ── Experience scroll ── */
 .experience {
   position: relative; z-index: 10;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 
 .scene {

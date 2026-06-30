@@ -35,24 +35,34 @@ const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
 /* ── Boot ── */
+function boot() {
+  try { initLenis(); } catch (e) { console.warn('Lenis:', e); }
+  try { initGSAP(); } catch (e) { console.warn('GSAP:', e); }
+  try { initThree(); } catch (e) { console.warn('Three:', e); }
+  try { initParticles(); } catch (e) { console.warn('Particles:', e); }
+  initScenes();
+  initCursor();
+  initParallax();
+  initSound();
+  renderProducts();
+  initFilters();
+  initCart();
+  initModal();
+  initCTAs();
+  updateCartUI();
+}
+
 window.addEventListener('load', () => {
-  runPreloader(() => {
-    initLenis();
-    initGSAP();
-    initThree();
-    initParticles();
-    initScenes();
-    initCursor();
-    initParallax();
-    initSound();
-    renderProducts();
-    initFilters();
-    initCart();
-    initModal();
-    initCTAs();
-    updateCartUI();
-  });
+  const force = setTimeout(finishPreloader, 2800);
+  runPreloader(() => { clearTimeout(force); finishPreloader(); });
 });
+
+function finishPreloader() {
+  const el = $('#preloader');
+  if (!el || el.classList.contains('done')) return;
+  el.classList.add('done');
+  boot();
+}
 
 /* ── Preloader ── */
 function runPreloader(done) {
@@ -87,18 +97,15 @@ function runPreloader(done) {
 
 /* ── Lenis smooth scroll ── */
 function initLenis() {
-  const experience = document.getElementById('experience');
+  if (typeof Lenis === 'undefined') return;
   lenis = new Lenis({
-    wrapper: experience,
-    content: experience,
-    duration: 1.6,
+    duration: 1.4,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
-    touchMultiplier: 2,
   });
-
-  lenis.on('scroll', ScrollTrigger.update);
-
+  if (typeof ScrollTrigger !== 'undefined') {
+    lenis.on('scroll', ScrollTrigger.update);
+  }
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -108,18 +115,8 @@ function initLenis() {
 
 /* ── GSAP ScrollTrigger animations ── */
 function initGSAP() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
-  const experience = document.getElementById('experience');
-
-  ScrollTrigger.scrollerProxy(experience, {
-    scrollTop(value) {
-      if (arguments.length) lenis.scrollTo(value);
-      return lenis.scroll;
-    },
-    getBoundingClientRect() {
-      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-    },
-  });
 
   $$('.scene').forEach((scene) => {
     const product = scene.querySelector('.product-hero');
@@ -131,8 +128,7 @@ function initGSAP() {
           duration: 1.6, ease: 'power3.out',
           scrollTrigger: {
             trigger: scene,
-            scroller: experience,
-            start: 'top 70%',
+            start: 'top 75%',
             toggleActions: 'play none none reverse',
           }
         }
@@ -146,7 +142,7 @@ function initGSAP() {
         {
           scale: 1, opacity: 1,
           duration: 1.2, stagger: 0.12, ease: 'power2.out',
-          scrollTrigger: { trigger: scene, scroller: experience, start: 'top 60%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: scene, start: 'top 65%', toggleActions: 'play none none reverse' }
         }
       );
     }
@@ -158,7 +154,7 @@ function initGSAP() {
         {
           y: 0, opacity: 1,
           duration: 1.1, ease: 'power2.out', delay: 0.2,
-          scrollTrigger: { trigger: scene, scroller: experience, start: 'top 55%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: scene, start: 'top 60%', toggleActions: 'play none none reverse' }
         }
       );
     }
@@ -167,6 +163,7 @@ function initGSAP() {
 
 /* ── Three.js ambient background ── */
 function initThree() {
+  if (typeof THREE === 'undefined') return;
   const canvas = $('#webgl');
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -279,7 +276,6 @@ function initScenes() {
     dots.appendChild(btn);
   });
 
-  const experience = $('#experience');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -301,7 +297,7 @@ function initScenes() {
       $('#sceneCounter').textContent = `${num} — ${total}`;
       $('#scrollProgress').style.height = ((idx / (scenes.length - 1)) * 100) + '%';
     });
-  }, { root: experience, threshold: 0.5 });
+  }, { threshold: 0.45 });
 
   scenes.forEach(s => observer.observe(s));
 
@@ -315,7 +311,7 @@ function scrollToScene(index) {
   const scenes = $$('.scene');
   const target = scenes[index];
   if (!target) return;
-  if (lenis) lenis.scrollTo(target, { duration: 1.6 });
+  if (lenis) lenis.scrollTo(target, { duration: 1.4, offset: 0 });
   else target.scrollIntoView({ behavior: 'smooth' });
 }
 
