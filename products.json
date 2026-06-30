@@ -1,0 +1,1072 @@
+{
+  "products": [
+    {
+      "name": "Billionaire Energy Hoodie - Navy",
+      "col": "Billionaire Energy",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765263511.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776526351.jpeg",
+      "id": 1
+    },
+    {
+      "name": "Exclusive Hoodie - Black",
+      "col": "Exclusive",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17593497572.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1759349757.jpeg",
+      "id": 2
+    },
+    {
+      "name": "Exclusive Hoodie - White",
+      "col": "Exclusive",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1759349397.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1759349313.jpeg",
+      "id": 3
+    },
+    {
+      "name": "Limited Edition Washed Grey Wynwood Exclusive Blue Hoodie",
+      "col": "Exclusive",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1761994501.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1761994594.jpeg",
+      "id": 4
+    },
+    {
+      "name": "Graphic Hoodie - Black",
+      "col": "Graphics",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16347091471.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1634709147.jpeg",
+      "id": 5
+    },
+    {
+      "name": "Graphic Hoodie - White",
+      "col": "Graphics",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16347102261.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1634710226.jpeg",
+      "id": 6
+    },
+    {
+      "name": "White Hoodie Wynwood Blue Wave Graphic",
+      "col": "Graphics",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360131971.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636013197.jpeg",
+      "id": 7
+    },
+    {
+      "name": "Black Hoodie Wynwood Blue Wave Graphic",
+      "col": "Graphics",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360126891.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636012689.jpeg",
+      "id": 8
+    },
+    {
+      "name": "The Club Hoodie - Stone",
+      "col": "The Club",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1673548911.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/16735489111.jpeg",
+      "id": 9
+    },
+    {
+      "name": "The Club Hoodie - Black",
+      "col": "The Club",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16359232321.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1635923232.jpeg",
+      "id": 10
+    },
+    {
+      "name": "The Club Hoodie - Washed Grey",
+      "col": "The Club",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1647194986.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647194986.jpeg",
+      "id": 11
+    },
+    {
+      "name": "The Club Hoodie - Cream",
+      "col": "The Club",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360357591.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636035759.jpeg",
+      "id": 12
+    },
+    {
+      "name": "Graphics Hoodie Limited Edition - White",
+      "col": "Graphics",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1768387768.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1768388952.jpeg",
+      "id": 13
+    },
+    {
+      "name": "Graphic Hoodie Limited Edition - Black",
+      "col": "Graphics",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1667381271.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1666967974.jpeg",
+      "id": 14
+    },
+    {
+      "name": "Portofino Hoodie - Navy",
+      "col": "Wynwood",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17626827221.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1762682722.jpeg",
+      "id": 15
+    },
+    {
+      "name": "Portofino Hoodie - Cream",
+      "col": "Wynwood",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17626824621.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1762682462.jpeg",
+      "id": 16
+    },
+    {
+      "name": "Kuwait Hoodie - Black",
+      "col": "Kuwait",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17387710771.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/17387710773.jpeg",
+      "id": 17
+    },
+    {
+      "name": "Kuwait Hoodie - White",
+      "col": "Kuwait",
+      "cat": "hoodies",
+      "price": 22,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17387708181.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1738770818.jpeg",
+      "id": 18
+    },
+    {
+      "name": "Ceo Tee - White",
+      "col": "CEO",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765282801.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776528280.jpeg",
+      "id": 19
+    },
+    {
+      "name": "Ceo Tee - Black",
+      "col": "CEO",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765284141.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776528414.jpeg",
+      "id": 20
+    },
+    {
+      "name": "Billionaire Energy Tee - Olive Green",
+      "col": "Billionaire Energy",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17826530321.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1782653032.jpeg",
+      "id": 21
+    },
+    {
+      "name": "Billionaire Energy Tee - White",
+      "col": "Billionaire Energy",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17770283861.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1777028386.jpeg",
+      "id": 22
+    },
+    {
+      "name": "Billionaire Energy Tee - Navy",
+      "col": "Billionaire Energy",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527131.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527105.jpeg",
+      "id": 23
+    },
+    {
+      "name": "Billionaire Energy Tee - Washed Grey",
+      "col": "Billionaire Energy",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765257601.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776525760.jpeg",
+      "id": 24
+    },
+    {
+      "name": "Exclusive Tee - Black",
+      "col": "Exclusive",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17424755131.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742475513.jpeg",
+      "id": 25
+    },
+    {
+      "name": "Exclusive Tee - Washed Grey",
+      "col": "Exclusive",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17424752671.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742475267.jpeg",
+      "id": 26
+    },
+    {
+      "name": "Exclusive Tee - White",
+      "col": "Exclusive",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17424749851.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474985.jpeg",
+      "id": 27
+    },
+    {
+      "name": "Graphic Tee - Black",
+      "col": "Graphics",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16473240341.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647706702.jpeg",
+      "id": 28
+    },
+    {
+      "name": "Graphics Tee - White",
+      "col": "Graphics",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1647324793.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647334353.jpeg",
+      "id": 29
+    },
+    {
+      "name": "Black Tee Blue Wave Graphic",
+      "col": "Graphics",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360136721.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/16360136722.jpeg",
+      "id": 30
+    },
+    {
+      "name": "White Tee Blue Wave Graphic",
+      "col": "Graphics",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360129731.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636012973.jpeg",
+      "id": 31
+    },
+    {
+      "name": "The Club Tee - White",
+      "col": "The Club",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17501543701.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750154370.jpeg",
+      "id": 32
+    },
+    {
+      "name": "Take Off Tee - Black",
+      "col": "Wynwood",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17501539121.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750153912.jpeg",
+      "id": 33
+    },
+    {
+      "name": "Takeoff Tee - White",
+      "col": "Wynwood",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750153258.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750153258.jpeg",
+      "id": 34
+    },
+    {
+      "name": "Airplane Tee - White",
+      "col": "Wynwood",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+      "id": 35
+    },
+    {
+      "name": "Airplane Tee - Black",
+      "col": "Wynwood",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+      "id": 36
+    },
+    {
+      "name": "Airplane Tee - Cream",
+      "col": "Wynwood",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16735489761.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1673548976.jpeg",
+      "id": 37
+    },
+    {
+      "name": "The Club Tee - Black",
+      "col": "The Club",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1647195074.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647195074.jpeg",
+      "id": 38
+    },
+    {
+      "name": "The Club Tee - Washed Grey",
+      "col": "The Club",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1637093635.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636035875.jpeg",
+      "id": 39
+    },
+    {
+      "name": "The Club Tee - Cream",
+      "col": "The Club",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1665849380.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1667381949.jpeg",
+      "id": 40
+    },
+    {
+      "name": "Wstar Tee - White",
+      "col": "Wynwood",
+      "cat": "tees",
+      "price": 16,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230345.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230345.jpeg",
+      "id": 41
+    },
+    {
+      "name": "Ceo Short - Black",
+      "col": "CEO",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg",
+      "id": 42
+    },
+    {
+      "name": "Billionaire Energy Short - Washed Grey",
+      "col": "Billionaire Energy",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1776525491.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776525491.jpeg",
+      "id": 43
+    },
+    {
+      "name": "Exclusive Short - Washed Grey",
+      "col": "Exclusive",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg",
+      "id": 44
+    },
+    {
+      "name": "Exclusive Short - Black",
+      "col": "Exclusive",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474718.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474718.jpeg",
+      "id": 45
+    },
+    {
+      "name": "Washed Blue Short Wynwood Club",
+      "col": "The Club",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1713714416.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1713714416.jpeg",
+      "id": 46
+    },
+    {
+      "name": "Short Takeoff - Black",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750154181.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750154181.jpeg",
+      "id": 47
+    },
+    {
+      "name": "Airplane Short - Black",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+      "id": 48
+    },
+    {
+      "name": "Airplane Short - Cream",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+      "id": 49
+    },
+    {
+      "name": "The Club Short - Black",
+      "col": "The Club",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1634634838.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1634634838.jpeg",
+      "id": 50
+    },
+    {
+      "name": "The Club Short - Washed Grey",
+      "col": "The Club",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1630215396.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1630215396.jpeg",
+      "id": 51
+    },
+    {
+      "name": "The Club Short - Butter Cream",
+      "col": "The Club",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1627330780.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1627330780.jpeg",
+      "id": 52
+    },
+    {
+      "name": "Classic Short - Beige",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17475849611.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1747584961.jpeg",
+      "id": 53
+    },
+    {
+      "name": "Classic Short - White",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17475854261.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1747585426.jpeg",
+      "id": 54
+    },
+    {
+      "name": "Wstar Short - Washed Grey",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229544.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229544.jpeg",
+      "id": 55
+    },
+    {
+      "name": "Wstar Short - Black",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229879.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229879.jpeg",
+      "id": 56
+    },
+    {
+      "name": "Wstar Short - Olive Green",
+      "col": "Wynwood",
+      "cat": "shorts",
+      "price": 15,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230891.jpeg",
+      "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230891.jpeg",
+      "id": 57
+    },
+    {
+      "name": "Socks V2",
+      "col": "Accessories",
+      "cat": "accessories",
+      "price": 10,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1700689186.jpeg",
+      "id": 58
+    },
+    {
+      "name": "Premium Tote Bag",
+      "col": "Accessories",
+      "cat": "accessories",
+      "price": 10,
+      "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1738770020.jpeg",
+      "id": 59
+    }
+  ],
+  "byCategory": {
+    "hoodies": [
+      {
+        "name": "Billionaire Energy Hoodie - Navy",
+        "col": "Billionaire Energy",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765263511.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776526351.jpeg",
+        "id": 1
+      },
+      {
+        "name": "Exclusive Hoodie - Black",
+        "col": "Exclusive",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17593497572.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1759349757.jpeg",
+        "id": 2
+      },
+      {
+        "name": "Exclusive Hoodie - White",
+        "col": "Exclusive",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1759349397.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1759349313.jpeg",
+        "id": 3
+      },
+      {
+        "name": "Limited Edition Washed Grey Wynwood Exclusive Blue Hoodie",
+        "col": "Exclusive",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1761994501.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1761994594.jpeg",
+        "id": 4
+      },
+      {
+        "name": "Graphic Hoodie - Black",
+        "col": "Graphics",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16347091471.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1634709147.jpeg",
+        "id": 5
+      },
+      {
+        "name": "Graphic Hoodie - White",
+        "col": "Graphics",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16347102261.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1634710226.jpeg",
+        "id": 6
+      },
+      {
+        "name": "White Hoodie Wynwood Blue Wave Graphic",
+        "col": "Graphics",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360131971.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636013197.jpeg",
+        "id": 7
+      },
+      {
+        "name": "Black Hoodie Wynwood Blue Wave Graphic",
+        "col": "Graphics",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360126891.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636012689.jpeg",
+        "id": 8
+      },
+      {
+        "name": "The Club Hoodie - Stone",
+        "col": "The Club",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1673548911.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/16735489111.jpeg",
+        "id": 9
+      },
+      {
+        "name": "The Club Hoodie - Black",
+        "col": "The Club",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16359232321.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1635923232.jpeg",
+        "id": 10
+      },
+      {
+        "name": "The Club Hoodie - Washed Grey",
+        "col": "The Club",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1647194986.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647194986.jpeg",
+        "id": 11
+      },
+      {
+        "name": "The Club Hoodie - Cream",
+        "col": "The Club",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360357591.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636035759.jpeg",
+        "id": 12
+      },
+      {
+        "name": "Graphics Hoodie Limited Edition - White",
+        "col": "Graphics",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1768387768.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1768388952.jpeg",
+        "id": 13
+      },
+      {
+        "name": "Graphic Hoodie Limited Edition - Black",
+        "col": "Graphics",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1667381271.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1666967974.jpeg",
+        "id": 14
+      },
+      {
+        "name": "Portofino Hoodie - Navy",
+        "col": "Wynwood",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17626827221.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1762682722.jpeg",
+        "id": 15
+      },
+      {
+        "name": "Portofino Hoodie - Cream",
+        "col": "Wynwood",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17626824621.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1762682462.jpeg",
+        "id": 16
+      },
+      {
+        "name": "Kuwait Hoodie - Black",
+        "col": "Kuwait",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17387710771.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/17387710773.jpeg",
+        "id": 17
+      },
+      {
+        "name": "Kuwait Hoodie - White",
+        "col": "Kuwait",
+        "cat": "hoodies",
+        "price": 22,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17387708181.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1738770818.jpeg",
+        "id": 18
+      }
+    ],
+    "tees": [
+      {
+        "name": "Ceo Tee - White",
+        "col": "CEO",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765282801.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776528280.jpeg",
+        "id": 19
+      },
+      {
+        "name": "Ceo Tee - Black",
+        "col": "CEO",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765284141.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776528414.jpeg",
+        "id": 20
+      },
+      {
+        "name": "Billionaire Energy Tee - Olive Green",
+        "col": "Billionaire Energy",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17826530321.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1782653032.jpeg",
+        "id": 21
+      },
+      {
+        "name": "Billionaire Energy Tee - White",
+        "col": "Billionaire Energy",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17770283861.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1777028386.jpeg",
+        "id": 22
+      },
+      {
+        "name": "Billionaire Energy Tee - Navy",
+        "col": "Billionaire Energy",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527131.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527105.jpeg",
+        "id": 23
+      },
+      {
+        "name": "Billionaire Energy Tee - Washed Grey",
+        "col": "Billionaire Energy",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17765257601.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776525760.jpeg",
+        "id": 24
+      },
+      {
+        "name": "Exclusive Tee - Black",
+        "col": "Exclusive",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17424755131.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742475513.jpeg",
+        "id": 25
+      },
+      {
+        "name": "Exclusive Tee - Washed Grey",
+        "col": "Exclusive",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17424752671.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742475267.jpeg",
+        "id": 26
+      },
+      {
+        "name": "Exclusive Tee - White",
+        "col": "Exclusive",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17424749851.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474985.jpeg",
+        "id": 27
+      },
+      {
+        "name": "Graphic Tee - Black",
+        "col": "Graphics",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16473240341.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647706702.jpeg",
+        "id": 28
+      },
+      {
+        "name": "Graphics Tee - White",
+        "col": "Graphics",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1647324793.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647334353.jpeg",
+        "id": 29
+      },
+      {
+        "name": "Black Tee Blue Wave Graphic",
+        "col": "Graphics",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360136721.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/16360136722.jpeg",
+        "id": 30
+      },
+      {
+        "name": "White Tee Blue Wave Graphic",
+        "col": "Graphics",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16360129731.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636012973.jpeg",
+        "id": 31
+      },
+      {
+        "name": "The Club Tee - White",
+        "col": "The Club",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17501543701.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750154370.jpeg",
+        "id": 32
+      },
+      {
+        "name": "Take Off Tee - Black",
+        "col": "Wynwood",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17501539121.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750153912.jpeg",
+        "id": 33
+      },
+      {
+        "name": "Takeoff Tee - White",
+        "col": "Wynwood",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750153258.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750153258.jpeg",
+        "id": 34
+      },
+      {
+        "name": "Airplane Tee - White",
+        "col": "Wynwood",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+        "id": 35
+      },
+      {
+        "name": "Airplane Tee - Black",
+        "col": "Wynwood",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+        "id": 36
+      },
+      {
+        "name": "Airplane Tee - Cream",
+        "col": "Wynwood",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/16735489761.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1673548976.jpeg",
+        "id": 37
+      },
+      {
+        "name": "The Club Tee - Black",
+        "col": "The Club",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1647195074.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1647195074.jpeg",
+        "id": 38
+      },
+      {
+        "name": "The Club Tee - Washed Grey",
+        "col": "The Club",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1637093635.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1636035875.jpeg",
+        "id": 39
+      },
+      {
+        "name": "The Club Tee - Cream",
+        "col": "The Club",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1665849380.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1667381949.jpeg",
+        "id": 40
+      },
+      {
+        "name": "Wstar Tee - White",
+        "col": "Wynwood",
+        "cat": "tees",
+        "price": 16,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230345.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230345.jpeg",
+        "id": 41
+      }
+    ],
+    "shorts": [
+      {
+        "name": "Ceo Short - Black",
+        "col": "CEO",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg",
+        "id": 42
+      },
+      {
+        "name": "Billionaire Energy Short - Washed Grey",
+        "col": "Billionaire Energy",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1776525491.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1776525491.jpeg",
+        "id": 43
+      },
+      {
+        "name": "Exclusive Short - Washed Grey",
+        "col": "Exclusive",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg",
+        "id": 44
+      },
+      {
+        "name": "Exclusive Short - Black",
+        "col": "Exclusive",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474718.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1742474718.jpeg",
+        "id": 45
+      },
+      {
+        "name": "Washed Blue Short Wynwood Club",
+        "col": "The Club",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1713714416.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1713714416.jpeg",
+        "id": 46
+      },
+      {
+        "name": "Short Takeoff - Black",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750154181.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750154181.jpeg",
+        "id": 47
+      },
+      {
+        "name": "Airplane Short - Black",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152891.jpeg",
+        "id": 48
+      },
+      {
+        "name": "Airplane Short - Cream",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1750152468.jpeg",
+        "id": 49
+      },
+      {
+        "name": "The Club Short - Black",
+        "col": "The Club",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1634634838.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1634634838.jpeg",
+        "id": 50
+      },
+      {
+        "name": "The Club Short - Washed Grey",
+        "col": "The Club",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1630215396.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1630215396.jpeg",
+        "id": 51
+      },
+      {
+        "name": "The Club Short - Butter Cream",
+        "col": "The Club",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1627330780.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1627330780.jpeg",
+        "id": 52
+      },
+      {
+        "name": "Classic Short - Beige",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17475849611.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1747584961.jpeg",
+        "id": 53
+      },
+      {
+        "name": "Classic Short - White",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/17475854261.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1747585426.jpeg",
+        "id": 54
+      },
+      {
+        "name": "Wstar Short - Washed Grey",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229544.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229544.jpeg",
+        "id": 55
+      },
+      {
+        "name": "Wstar Short - Black",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229879.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719229879.jpeg",
+        "id": 56
+      },
+      {
+        "name": "Wstar Short - Olive Green",
+        "col": "Wynwood",
+        "cat": "shorts",
+        "price": 15,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230891.jpeg",
+        "imgModel": "https://wynwoodkw.com/uploads/products/cache/500_700/1719230891.jpeg",
+        "id": 57
+      }
+    ],
+    "accessories": [
+      {
+        "name": "Socks V2",
+        "col": "Accessories",
+        "cat": "accessories",
+        "price": 10,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1700689186.jpeg",
+        "id": 58
+      },
+      {
+        "name": "Premium Tote Bag",
+        "col": "Accessories",
+        "cat": "accessories",
+        "price": 10,
+        "img": "https://wynwoodkw.com/uploads/products/cache/500_700/1738770020.jpeg",
+        "id": 59
+      }
+    ]
+  }
+}

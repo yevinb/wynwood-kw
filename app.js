@@ -1,35 +1,9 @@
-/* WYNWOOD — Simple, reliable, works everywhere */
+/* WYNWOOD — Shop loads real catalog from products.json */
 
-const PRODUCTS = [
-  { id:1, name:'CEO Tee — Black', col:'CEO', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776528414.jpeg' },
-  { id:2, name:'CEO Tee — White', col:'CEO', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776528280.jpeg' },
-  { id:3, name:'CEO Short — Black', col:'CEO', cat:'shorts', price:15, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg' },
-  { id:4, name:'Billionaire Energy Tee — Olive', col:'Billionaire Energy', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1782653032.jpeg' },
-  { id:5, name:'Billionaire Energy Tee — White', col:'Billionaire Energy', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1777028386.jpeg' },
-  { id:6, name:'Billionaire Energy Hoodie — Navy', col:'Billionaire Energy', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776526351.jpeg' },
-  { id:7, name:'Exclusive Hoodie — Black', col:'Exclusive', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1759349757.jpeg' },
-  { id:8, name:'Exclusive Hoodie — White', col:'Exclusive', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1759349313.jpeg' },
-  { id:9, name:'Exclusive Tee — Black', col:'Exclusive', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1742475513.jpeg' },
-  { id:10, name:'Exclusive Short — Grey', col:'Exclusive', cat:'shorts', price:15, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg' },
-  { id:11, name:'Kuwait Hoodie — Black', col:'Kuwait', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/17387710773.jpeg' },
-  { id:12, name:'Kuwait Hoodie — White', col:'Kuwait', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1738770818.jpeg' },
-  { id:13, name:'The Club Hoodie — Black', col:'The Club', cat:'hoodies', price:18, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1635923232.jpeg' },
-  { id:14, name:'Graphics Hoodie — Black', col:'Graphics', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1634709147.jpeg' },
-  { id:15, name:'Socks V2', col:'Accessories', cat:'accessories', price:10, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1700689186.jpeg' },
-  { id:16, name:'Premium Tote Bag', col:'Accessories', cat:'accessories', price:10, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1738770020.jpeg' },
-];
-
+let PRODUCTS = [];
 const COLLECTIONS = ['ceo', 'billionaire', 'exclusive', 'kuwait'];
 const CATEGORIES = ['hoodies', 'tees', 'shorts', 'accessories'];
-
-function productCategory(p) {
-  if (p.cat) return p.cat;
-  const n = p.name.toLowerCase();
-  if (n.includes('hoodie')) return 'hoodies';
-  if (n.includes('tee')) return 'tees';
-  if (n.includes('short')) return 'shorts';
-  return 'accessories';
-}
+const CAT_LABEL = { hoodies: 'Hoodie', tees: 'Tee', shorts: 'Short', accessories: 'Accessory' };
 
 let cart = JSON.parse(localStorage.getItem('wn-cart') || '[]');
 let filter = 'all';
@@ -40,7 +14,7 @@ let started = false;
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
 
-/* ── LOADER — 360 flip then straight to site ── */
+/* ── LOADER ── */
 (function init() {
   const loader = $('#loader');
   const minSpin = 2200;
@@ -59,9 +33,18 @@ const $$ = s => document.querySelectorAll(s);
   setTimeout(finish, 3500);
 })();
 
-function start() {
+async function start() {
   if (started) return;
   started = true;
+
+  try {
+    const res = await fetch('products.json?v=2');
+    const data = await res.json();
+    PRODUCTS = data.products || [];
+  } catch {
+    PRODUCTS = [];
+  }
+
   $('#loader').classList.add('hide');
   renderShop();
   bindAll();
@@ -70,66 +53,72 @@ function start() {
   window.scrollTo(0, 0);
 }
 
-/* ── SHOP ── */
+function getVisibleProducts() {
+  if (!PRODUCTS.length) return [];
+
+  if (filter === 'all') return PRODUCTS;
+
+  if (COLLECTIONS.includes(filter)) {
+    return PRODUCTS.filter(p => p.col.toLowerCase().includes(filter));
+  }
+
+  if (CATEGORIES.includes(filter)) {
+    return PRODUCTS.filter(p => p.cat === filter);
+  }
+
+  return PRODUCTS;
+}
+
+/* ── SHOP — re-render on every filter (no hide/show bugs) ── */
 function renderShop() {
-  $('#productGrid').innerHTML = PRODUCTS.map(p => {
-    const cat = productCategory(p);
-    return `
-    <article class="product-card" data-id="${p.id}" data-cat="${cat}" data-col="${p.col.toLowerCase()}">
+  const grid = $('#productGrid');
+  const items = getVisibleProducts();
+
+  if (!items.length) {
+    grid.innerHTML = '<p class="shop-empty">Loading products…</p>';
+    return;
+  }
+
+  grid.innerHTML = items.map(p => `
+    <article class="product-card" data-id="${p.id}" data-cat="${p.cat}">
+      <div class="product-type">${CAT_LABEL[p.cat] || p.cat}</div>
       <img src="${p.img}" alt="${p.name}" loading="lazy"/>
       <div class="info">
         <div class="col">${p.col}</div>
         <div class="name">${p.name}</div>
         <div class="price">KWD ${p.price.toFixed(3)}</div>
       </div>
-    </article>`;
-  }).join('');
-  applyFilter();
+    </article>`).join('');
+
+  $$('#productGrid .product-card').forEach(el => {
+    el.classList.add('reveal', 'visible');
+  });
 }
 
-function applyFilter() {
-  $$('.product-card').forEach(c => {
-    const cat = c.dataset.cat;
-    const col = c.dataset.col;
-    let show = false;
-
-    if (filter === 'all') {
-      show = true;
-    } else if (COLLECTIONS.includes(filter)) {
-      show = col.includes(filter);
-    } else if (CATEGORIES.includes(filter)) {
-      show = cat === filter;
-    }
-
-    c.classList.toggle('hidden', !show);
-  });
+function setFilter(next) {
+  filter = next;
+  renderShop();
 }
 
 /* ── BINDINGS ── */
 function bindAll() {
-  // Nav scroll
   window.addEventListener('scroll', () => {
     $('#nav').classList.toggle('scrolled', scrollY > 60);
   }, { passive: true });
 
-  // Mobile menu
   $('#menuBtn').onclick = () => $('#mobileNav').classList.toggle('open');
   $$('.mobile-nav a').forEach(a => a.onclick = () => $('#mobileNav').classList.remove('open'));
 
-  // Filters — shop category buttons only
   $$('.filters .filter').forEach(b => b.onclick = () => {
     $$('.filters .filter').forEach(x => x.classList.remove('active'));
     b.classList.add('active');
-    filter = b.dataset.filter;
-    applyFilter();
+    setFilter(b.dataset.filter);
   });
 
-  // Collection buttons
   $$('.collection-btn').forEach(b => b.onclick = e => {
     e.stopPropagation();
-    filter = b.dataset.filter;
     $$('.filters .filter').forEach(x => x.classList.remove('active'));
-    applyFilter();
+    setFilter(b.dataset.filter);
     $('#shop').scrollIntoView({ behavior: 'smooth' });
   });
 
@@ -138,20 +127,17 @@ function bindAll() {
     if (b) b.click();
   });
 
-  // Products
   document.addEventListener('click', e => {
     const card = e.target.closest('.product-card');
     if (card) openModal(+card.dataset.id);
   });
 
-  // Cart
   $('#cartBtn').onclick = openCart;
   $('#cartClose').onclick = closeCart;
   $('#cartOverlay').onclick = closeCart;
   $('#cartShop')?.addEventListener('click', closeCart);
   $('#checkoutBtn').onclick = () => window.open('https://www.wynwoodkw.com/cart', '_blank');
 
-  // Modal
   $('#modalClose').onclick = closeModal;
   $('#modalBg').onclick = closeModal;
   $('#modalAdd').onclick = () => { if (modalId) { addCart(modalId, size); closeModal(); } };
@@ -161,7 +147,6 @@ function bindAll() {
     size = b.dataset.sz;
   });
 
-  // Newsletter
   $('#newsForm').onsubmit = e => {
     e.preventDefault();
     e.target.reset();
@@ -171,7 +156,6 @@ function bindAll() {
   updateCart();
 }
 
-/* ── MODAL ── */
 function openModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
@@ -192,7 +176,6 @@ function closeModal() {
   modalId = null;
 }
 
-/* ── CART ── */
 function addCart(id, sz = 'M') {
   const key = id + '-' + sz;
   const ex = cart.find(i => i.key === key);
@@ -269,7 +252,6 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-/* ── REVEAL ON SCROLL ── */
 function initParallax() {
   const hero = $('.hero-bg-img');
   if (!hero) return;
@@ -280,7 +262,7 @@ function initParallax() {
 }
 
 function observeReveal() {
-  const els = $$('.collection-card, .product-card, .store-card, .lookbook-item, .section-head, .chapter');
+  const els = $$('.collection-card, .store-card, .lookbook-item, .section-head, .chapter');
   els.forEach(el => el.classList.add('reveal'));
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
