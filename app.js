@@ -19,6 +19,17 @@ const PRODUCTS = [
   { id:16, name:'Premium Tote Bag', col:'Accessories', cat:'accessories', price:10, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1738770020.jpeg' },
 ];
 
+const COLLECTIONS = ['ceo', 'billionaire', 'exclusive', 'kuwait'];
+const CATEGORIES = ['hoodies', 'tees', 'shorts', 'accessories'];
+
+function productCategory(p) {
+  const n = p.name.toLowerCase();
+  if (n.includes('hoodie')) return 'hoodies';
+  if (n.includes('tee')) return 'tees';
+  if (n.includes('short')) return 'shorts';
+  return 'accessories';
+}
+
 let cart = JSON.parse(localStorage.getItem('wn-cart') || '[]');
 let filter = 'all';
 let size = 'M';
@@ -28,19 +39,23 @@ let started = false;
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
 
-/* ── LOADER (fixed — always boots) ── */
+/* ── LOADER — 360 flip then straight to site ── */
 (function init() {
-  const bar = $('#loaderBar');
-  let p = 0;
-  const go = () => {
-    p = Math.min(p + Math.random() * 15 + 5, 100);
-    bar.style.width = p + '%';
-    if (p < 100) setTimeout(go, 60);
-    else setTimeout(start, 400);
+  const loader = $('#loader');
+  const minSpin = 2200;
+  const t0 = Date.now();
+
+  const finish = () => {
+    const wait = Math.max(0, minSpin - (Date.now() - t0));
+    setTimeout(() => {
+      loader.classList.add('done');
+      setTimeout(start, 650);
+    }, wait);
   };
-  // Safety: always start after 2s max
-  setTimeout(start, 2000);
-  go();
+
+  if (document.readyState === 'complete') finish();
+  else window.addEventListener('load', finish);
+  setTimeout(finish, 3500);
 })();
 
 function start() {
@@ -51,19 +66,23 @@ function start() {
   bindAll();
   observeReveal();
   initParallax();
+  window.scrollTo(0, 0);
 }
 
 /* ── SHOP ── */
 function renderShop() {
-  $('#productGrid').innerHTML = PRODUCTS.map(p => `
-    <article class="product-card" data-id="${p.id}" data-cat="${p.cat}" data-col="${p.col.toLowerCase()}">
+  $('#productGrid').innerHTML = PRODUCTS.map(p => {
+    const cat = productCategory(p);
+    return `
+    <article class="product-card" data-id="${p.id}" data-cat="${cat}" data-col="${p.col.toLowerCase()}">
       <img src="${p.img}" alt="${p.name}" loading="lazy"/>
       <div class="info">
         <div class="col">${p.col}</div>
         <div class="name">${p.name}</div>
         <div class="price">KWD ${p.price.toFixed(3)}</div>
       </div>
-    </article>`).join('');
+    </article>`;
+  }).join('');
   applyFilter();
 }
 
@@ -71,9 +90,17 @@ function applyFilter() {
   $$('.product-card').forEach(c => {
     const cat = c.dataset.cat;
     const col = c.dataset.col;
-    const ok = filter === 'all' || cat === filter ||
-      ['ceo','billionaire','exclusive','kuwait'].includes(filter) && col.includes(filter);
-    c.classList.toggle('hidden', !ok);
+    let show = false;
+
+    if (filter === 'all') {
+      show = true;
+    } else if (COLLECTIONS.includes(filter)) {
+      show = col.includes(filter);
+    } else if (CATEGORIES.includes(filter)) {
+      show = cat === filter;
+    }
+
+    c.classList.toggle('hidden', !show);
   });
 }
 
@@ -88,9 +115,9 @@ function bindAll() {
   $('#menuBtn').onclick = () => $('#mobileNav').classList.toggle('open');
   $$('.mobile-nav a').forEach(a => a.onclick = () => $('#mobileNav').classList.remove('open'));
 
-  // Filters
-  $$('.filter').forEach(b => b.onclick = () => {
-    $$('.filter').forEach(x => x.classList.remove('active'));
+  // Filters — shop category buttons only
+  $$('.filters .filter').forEach(b => b.onclick = () => {
+    $$('.filters .filter').forEach(x => x.classList.remove('active'));
     b.classList.add('active');
     filter = b.dataset.filter;
     applyFilter();
@@ -100,7 +127,7 @@ function bindAll() {
   $$('.collection-btn').forEach(b => b.onclick = e => {
     e.stopPropagation();
     filter = b.dataset.filter;
-    $$('.filter').forEach(x => x.classList.toggle('active', x.dataset.filter === filter));
+    $$('.filters .filter').forEach(x => x.classList.remove('active'));
     applyFilter();
     $('#shop').scrollIntoView({ behavior: 'smooth' });
   });
