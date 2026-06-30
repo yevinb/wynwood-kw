@@ -262,7 +262,7 @@ function initParallax() {
 }
 
 function observeReveal() {
-  const els = $$('.collection-card, .store-card, .lookbook-item, .section-head, .chapter');
+  const els = $$('.collection-card, .store-card, .lookbook-item, .section-head');
   els.forEach(el => el.classList.add('reveal'));
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
