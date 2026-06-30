@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=11"/>
+  <link rel="stylesheet" href="styles.css?v=12"/>
 </head>
 <body>
   <div class="loader" id="loader">
@@ -66,7 +66,7 @@
 
     <!-- IMMERSIVE CHAPTERS (3 — no CEO) -->
     <section class="chapters" id="collections">
-      <div class="chapter chapter-billionaire">
+      <div class="chapter chapter-billionaire" id="chapter-billionaire">
         <div class="chapter-glow"></div>
         <div class="chapter-frame">
           <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765263511.jpeg" alt="Billionaire Energy"/>
@@ -78,7 +78,7 @@
           <button class="collection-btn" data-filter="billionaire">Explore →</button>
         </div>
       </div>
-      <div class="chapter chapter-exclusive">
+      <div class="chapter chapter-exclusive" id="chapter-exclusive">
         <div class="chapter-glow"></div>
         <div class="chapter-frame">
           <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17593497572.jpeg" alt="Exclusive"/>
@@ -90,7 +90,7 @@
           <button class="collection-btn" data-filter="exclusive">Explore →</button>
         </div>
       </div>
-      <div class="chapter chapter-kuwait">
+      <div class="chapter chapter-kuwait" id="chapter-kuwait">
         <div class="chapter-glow"></div>
         <div class="chapter-frame">
           <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17387710771.jpeg" alt="Kuwait"/>
@@ -121,7 +121,7 @@
     </div>
 
     <!-- FEATURED DROP -->
-    <section class="drop">
+    <section class="drop" id="drop">
       <div class="drop-visual">
         <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765263511.jpeg" alt="Money Drip"/>
         <div class="drop-tag">JUST DROPPED</div>
@@ -162,10 +162,22 @@
         <h2>THE VIBE</h2>
       </div>
       <div class="lookbook-grid">
-        <div class="lookbook-item"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/17826530321.jpeg" alt=""/><span>Billionaire Energy 🤑</span></div>
-        <div class="lookbook-item tall"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/17387710771.jpeg" alt=""/><span>Kuwait Rep 🇰🇼</span></div>
-        <div class="lookbook-item"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765284141.jpeg" alt=""/><span>CEO Mode ✌️</span></div>
-        <div class="lookbook-item wide"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/17593497572.jpeg" alt=""/><span>Money Drip 💸</span></div>
+        <button type="button" class="lookbook-item" data-scroll="#chapter-billionaire" aria-label="Billionaire Energy collection">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17826530321.jpeg" alt="Billionaire Energy"/>
+          <span>Billionaire Energy 🤑</span>
+        </button>
+        <button type="button" class="lookbook-item tall" data-scroll="#chapter-kuwait" aria-label="Kuwait collection">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17387710771.jpeg" alt="Kuwait"/>
+          <span>Kuwait Rep 🇰🇼</span>
+        </button>
+        <button type="button" class="lookbook-item" data-scroll="#shop" data-filter="ceo" aria-label="CEO collection shop">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765284141.jpeg" alt="CEO"/>
+          <span>CEO Mode ✌️</span>
+        </button>
+        <button type="button" class="lookbook-item wide" data-scroll="#drop" aria-label="Money Drip featured drop">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17593497572.jpeg" alt="Money Drip"/>
+          <span>Money Drip 💸</span>
+        </button>
       </div>
       <a href="https://www.instagram.com/wynwood.kw/" target="_blank" rel="noopener" class="btn btn-outline center">FOLLOW @wynwood.kw</a>
     </section>
@@ -248,6 +260,6 @@
   <div class="toast" id="toast"></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>

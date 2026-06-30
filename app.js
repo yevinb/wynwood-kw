@@ -100,6 +100,15 @@ function setFilter(next) {
   renderShop();
 }
 
+function goToSection(selector, collectionFilter) {
+  if (collectionFilter) {
+    $$('.filters .filter').forEach(x => x.classList.remove('active'));
+    setFilter(collectionFilter);
+  }
+  const el = document.querySelector(selector);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 /* ── BINDINGS ── */
 function bindAll() {
   window.addEventListener('scroll', () => {
@@ -117,9 +126,11 @@ function bindAll() {
 
   $$('.collection-btn').forEach(b => b.onclick = e => {
     e.stopPropagation();
-    $$('.filters .filter').forEach(x => x.classList.remove('active'));
-    setFilter(b.dataset.filter);
-    $('#shop').scrollIntoView({ behavior: 'smooth' });
+    goToSection('#shop', b.dataset.filter);
+  });
+
+  $$('.lookbook-item[data-scroll]').forEach(item => {
+    item.onclick = () => goToSection(item.dataset.scroll, item.dataset.filter || null);
   });
 
   document.addEventListener('click', e => {
