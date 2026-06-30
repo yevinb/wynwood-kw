@@ -2,230 +2,306 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <meta name="description" content="Wynwood Kuwait — Immersive luxury streetwear"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Wynwood Kuwait — Premium streetwear. CEO energy. Billionaire attitude."/>
   <meta property="og:url" content="https://yevinb.github.io/wynwood-kw/"/>
   <link rel="canonical" href="https://yevinb.github.io/wynwood-kw/"/>
-  <title>WYNWOOD</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='10' fill='%23fff' text-anchor='middle'%3EWN%3C/text%3E%3C/svg%3E"/>
+  <title>WYNWOOD — Kuwait Streetwear</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='10' fill='%23D4AF37' text-anchor='middle'%3EWN%3C/text%3E%3C/svg%3E"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-brand">Wynwood</div>
-      <div class="preloader-track"><div class="preloader-fill" id="preloaderFill"></div></div>
-      <div class="preloader-count" id="preloaderCount">0</div>
-    </div>
+  <div class="loader" id="loader">
+    <div class="loader-logo">WYNWOOD</div>
+    <div class="loader-bar"><i id="loaderBar"></i></div>
   </div>
 
-  <div class="grain" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
-  <canvas id="webgl" aria-hidden="true"></canvas>
-  <canvas id="particles" aria-hidden="true"></canvas>
-
-  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
-  <div class="scene-counter" id="sceneCounter">01 — 08</div>
-
-  <header class="chrome" id="chrome">
-    <button class="sound-btn" id="soundBtn" aria-label="Sound">son</button>
-    <a href="#" class="brand-mark" id="brandMark">Wynwood</a>
-    <button class="bag-btn" id="cartBtn">bag <em id="cartCount">0</em></button>
+  <header class="nav" id="nav">
+    <button class="nav-menu" id="menuBtn" aria-label="Menu">☰</button>
+    <a href="#" class="nav-logo">WYNWOOD</a>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/wynwood.kw/" target="_blank" rel="noopener" class="nav-ig">IG</a>
+      <button class="nav-bag" id="cartBtn">BAG (<span id="cartCount">0</span>)</button>
+    </div>
   </header>
 
-  <nav class="scene-dots" id="sceneDots" aria-label="Sections"></nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#hero">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="#shop">Shop</a>
+    <a href="#stores">Stores</a>
+    <a href="https://www.instagram.com/wynwood.kw/" target="_blank" rel="noopener">Instagram</a>
+  </div>
 
-  <main class="experience" id="experience">
-    <section class="scene scene-intro active" data-scene="intro" data-label="Home" data-theme="dark">
-      <div class="scene-bg intro-bg">
-        <div class="intro-orb o1"></div>
-        <div class="intro-orb o2"></div>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt="" class="hero-bg-img"/>
+        <div class="hero-overlay"></div>
       </div>
-      <div class="scene-inner">
-        <p class="eyebrow anim-up">Kuwait · Verified · 43K</p>
-        <h1 class="hero-title anim-up">
-          <span class="split-line"><span>Wyn</span></span>
-          <span class="split-line"><span>wood</span></span>
-        </h1>
-        <p class="hero-tagline anim-up">Founder of your own life</p>
-      </div>
-      <div class="scroll-cue"><span>Scroll</span><i></i></div>
-    </section>
-
-    <section class="scene scene-ceo" data-scene="ceo" data-label="CEO" data-theme="light">
-      <div class="scene-bg ceo-bg"></div>
-      <div class="arch-space" aria-hidden="true">
-        <div class="arch arch-l"></div>
-        <div class="arch arch-r"></div>
-        <div class="floor-reflection"></div>
-      </div>
-      <div class="product-hero" data-depth="20">
-        <div class="product-glow"></div>
-        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg" alt="CEO Collection"/>
-      </div>
-      <footer class="scene-caption">
-        <span class="cap-num">01</span>
-        <h2>CEO COLLECTION</h2>
-        <p>Founder & creator energy</p>
-        <button class="cta" data-scroll="shop" data-filter="ceo">Discover</button>
-      </footer>
-    </section>
-
-    <section class="scene scene-billionaire" data-scene="billionaire" data-label="Billionaire" data-theme="dark">
-      <div class="scene-bg billionaire-bg"></div>
-      <div class="frame-stack" aria-hidden="true">
-        <div class="lux-frame"></div>
-        <div class="lux-frame"></div>
-        <div class="lux-frame"></div>
-        <div class="lux-frame"></div>
-      </div>
-      <div class="product-hero framed" data-depth="18">
-        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765277131.jpeg" alt="Billionaire Energy"/>
-      </div>
-      <footer class="scene-caption light">
-        <span class="cap-num">02</span>
-        <h2>BILLIONAIRE ENERGY</h2>
-        <p>Not a trend — an attitude</p>
-        <button class="cta gold" data-scroll="shop" data-filter="billionaire">Discover</button>
-      </footer>
-    </section>
-
-    <section class="scene scene-exclusive" data-scene="exclusive" data-label="Exclusive" data-theme="light">
-      <div class="scene-bg exclusive-bg"></div>
-      <div class="polaroids" aria-hidden="true">
-        <figure class="polaroid p1"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt=""/></figure>
-        <figure class="polaroid p2"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg" alt=""/></figure>
-        <figure class="polaroid p3"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/17387710772.jpeg" alt=""/></figure>
-      </div>
-      <div class="product-hero float" data-depth="22">
-        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt="Exclusive"/>
-      </div>
-      <footer class="scene-caption dark-text">
-        <span class="cap-num">03</span>
-        <h2>EXCLUSIVE</h2>
-        <p>Limited. Premium. Yours.</p>
-        <button class="cta dark" data-scroll="shop" data-filter="exclusive">Discover</button>
-      </footer>
-    </section>
-
-    <section class="scene scene-kuwait" data-scene="kuwait" data-label="Kuwait" data-theme="dark">
-      <div class="scene-bg kuwait-bg"></div>
-      <div class="spotlight-beam" aria-hidden="true"></div>
-      <div class="pedestal-rings" aria-hidden="true">
-        <div class="ring"></div><div class="ring"></div><div class="ring"></div>
-      </div>
-      <div class="product-hero spotlight" data-depth="16">
-        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1738771077.jpeg" alt="Kuwait Hoodie"/>
-      </div>
-      <footer class="scene-caption light">
-        <span class="cap-num">04</span>
-        <h2>KUWAIT</h2>
-        <p>Rep the homeland</p>
-        <button class="cta gold" data-scroll="shop" data-filter="kuwait">Discover</button>
-      </footer>
-    </section>
-
-    <section class="scene scene-drip" data-scene="drip" data-label="Drip" data-theme="dark" data-particles="true">
-      <div class="scene-bg drip-bg"></div>
-      <div class="product-hero drip" data-depth="24">
-        <div class="drip-aura"></div>
-        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt="Money Drip"/>
-      </div>
-      <footer class="scene-caption light">
-        <span class="cap-num">05</span>
-        <h2>MONEY DRIP</h2>
-        <p>The stack we're always here for</p>
-        <button class="cta gold" data-scroll="shop">Shop Now</button>
-      </footer>
-    </section>
-
-    <section class="scene scene-shop" id="shop" data-scene="shop" data-label="Shop" data-theme="dark">
-      <div class="shop-container">
-        <header class="shop-header">
-          <div>
-            <span class="eyebrow">Collection</span>
-            <h2>Shop All</h2>
-          </div>
-          <div class="filters">
-            <button class="filter active" data-filter="all">All</button>
-            <button class="filter" data-filter="hoodies">Hoodies</button>
-            <button class="filter" data-filter="tees">Tees</button>
-            <button class="filter" data-filter="shorts">Shorts</button>
-            <button class="filter" data-filter="accessories">Accessories</button>
-          </div>
-        </header>
-        <div class="shop-grid" id="productGrid"></div>
-      </div>
-    </section>
-
-    <section class="scene scene-stores" id="stores" data-scene="stores" data-label="Stores" data-theme="dark">
-      <div class="stores-container">
-        <span class="eyebrow">Visit</span>
-        <h2>Flagship Stores</h2>
-        <div class="store-grid">
-          <article class="store">
-            <span>01</span>
-            <h3>Shuwaikh Industrial</h3>
-            <p>Lilly Center, Kuwait</p>
-            <a href="https://maps.app.goo.gl/i3sW3SQVm7xeaDK66?g_st=ic" target="_blank" rel="noopener">Directions →</a>
-          </article>
-          <article class="store">
-            <span>02</span>
-            <h3>The Avenues Mall</h3>
-            <p>Phase 2, Kuwait</p>
-            <a href="https://maps.app.goo.gl/oqT8jjm8tiGTQM7T9?g_st=ic" target="_blank" rel="noopener">Directions →</a>
-          </article>
+      <div class="hero-content">
+        <div class="hero-badge">✦ KUWAIT · 43K FOLLOWERS · VERIFIED</div>
+        <h1>FOUNDER<br/><span>OF YOUR</span><br/>OWN LIFE</h1>
+        <p>Premium Kuwait streetwear. CEO mindset. Billionaire energy.</p>
+        <div class="hero-btns">
+          <a href="#shop" class="btn btn-gold">SHOP DROPS</a>
+          <a href="#collections" class="btn btn-outline">COLLECTIONS</a>
         </div>
-        <nav class="footer-links">
-          <a href="https://www.instagram.com/wynwood.kw/" target="_blank" rel="noopener">Instagram</a>
-          <a href="mailto:Wynwoodkw@gmail.com">Contact</a>
-          <a href="https://www.wynwoodkw.com/" target="_blank" rel="noopener">wynwoodkw.com</a>
-        </nav>
-        <p class="copy">© 2026 Wynwood Kuwait · International Shipping</p>
+        <div class="hero-stats">
+          <div><strong>43K+</strong><span>Community</span></div>
+          <div><strong>483</strong><span>Releases</span></div>
+          <div><strong>2</strong><span>Stores</span></div>
+        </div>
       </div>
+      <div class="hero-scroll">SCROLL ↓</div>
+    </section>
+
+    <!-- IMMERSIVE CHAPTERS -->
+    <section class="chapters" id="chapters">
+      <div class="chapter chapter-ceo">
+        <div class="chapter-glow"></div>
+        <div class="chapter-frame">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg" alt="CEO"/>
+        </div>
+        <div class="chapter-copy">
+          <span>01</span>
+          <h2>CEO</h2>
+          <p>Founder of your own life</p>
+          <button class="collection-btn" data-filter="ceo">Explore →</button>
+        </div>
+      </div>
+      <div class="chapter chapter-billionaire">
+        <div class="chapter-glow"></div>
+        <div class="chapter-frame">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765277131.jpeg" alt="Billionaire Energy"/>
+        </div>
+        <div class="chapter-copy">
+          <span>02</span>
+          <h2>BILLIONAIRE<br/>ENERGY</h2>
+          <p>Not a trend — an attitude</p>
+          <button class="collection-btn" data-filter="billionaire">Explore →</button>
+        </div>
+      </div>
+      <div class="chapter chapter-exclusive">
+        <div class="chapter-glow"></div>
+        <div class="chapter-frame">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt="Exclusive"/>
+        </div>
+        <div class="chapter-copy">
+          <span>03</span>
+          <h2>EXCLUSIVE</h2>
+          <p>Limited drops only</p>
+          <button class="collection-btn" data-filter="exclusive">Explore →</button>
+        </div>
+      </div>
+      <div class="chapter chapter-kuwait">
+        <div class="chapter-glow"></div>
+        <div class="chapter-frame">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1738771077.jpeg" alt="Kuwait"/>
+        </div>
+        <div class="chapter-copy">
+          <span>04</span>
+          <h2>KUWAIT</h2>
+          <p>Rep the homeland</p>
+          <button class="collection-btn" data-filter="kuwait">Explore →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-inner">
+        <span>BILLIONAIRE ENERGY</span><span>◆</span>
+        <span>CEO COLLECTION</span><span>◆</span>
+        <span>MONEY DRIP</span><span>◆</span>
+        <span>EXCLUSIVE DROPS</span><span>◆</span>
+        <span>KUWAIT STREETWEAR</span><span>◆</span>
+        <span>BILLIONAIRE ENERGY</span><span>◆</span>
+        <span>CEO COLLECTION</span><span>◆</span>
+        <span>MONEY DRIP</span><span>◆</span>
+        <span>EXCLUSIVE DROPS</span><span>◆</span>
+        <span>KUWAIT STREETWEAR</span><span>◆</span>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS -->
+    <section class="collections" id="collections">
+      <div class="section-head">
+        <span class="label">01 — COLLECTIONS</span>
+        <h2>PICK YOUR ENERGY</h2>
+      </div>
+      <div class="collection-grid">
+        <article class="collection-card" data-filter="ceo">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg" alt="CEO"/>
+          <div class="collection-info">
+            <span>01</span>
+            <h3>CEO</h3>
+            <p>Founder energy</p>
+            <button class="collection-btn" data-filter="ceo">Shop →</button>
+          </div>
+        </article>
+        <article class="collection-card large" data-filter="billionaire">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765277131.jpeg" alt="Billionaire"/>
+          <div class="collection-info">
+            <span>02</span>
+            <h3>BILLIONAIRE ENERGY</h3>
+            <p>Not a trend — an attitude</p>
+            <button class="collection-btn" data-filter="billionaire">Shop →</button>
+          </div>
+        </article>
+        <article class="collection-card" data-filter="exclusive">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt="Exclusive"/>
+          <div class="collection-info">
+            <span>03</span>
+            <h3>EXCLUSIVE</h3>
+            <p>Limited drops</p>
+            <button class="collection-btn" data-filter="exclusive">Shop →</button>
+          </div>
+        </article>
+        <article class="collection-card" data-filter="kuwait">
+          <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1738771077.jpeg" alt="Kuwait"/>
+          <div class="collection-info">
+            <span>04</span>
+            <h3>KUWAIT</h3>
+            <p>Rep the homeland</p>
+            <button class="collection-btn" data-filter="kuwait">Shop →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FEATURED DROP -->
+    <section class="drop">
+      <div class="drop-visual">
+        <img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt="Money Drip"/>
+        <div class="drop-tag">JUST DROPPED</div>
+      </div>
+      <div class="drop-text">
+        <span class="label">LATEST RELEASE</span>
+        <h2>MONEY<br/>DRIP</h2>
+        <p>The stack we're always here for. New billionaire energy pieces — online & in both flagship stores.</p>
+        <ul>
+          <li>Premium heavyweight cotton</li>
+          <li>Limited production run</li>
+          <li>KWD 16 – 22</li>
+        </ul>
+        <a href="#shop" class="btn btn-gold">GET YOURS</a>
+      </div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="shop" id="shop">
+      <div class="section-head">
+        <span class="label">02 — SHOP</span>
+        <h2>ALL PRODUCTS</h2>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="hoodies">Hoodies</button>
+        <button class="filter" data-filter="tees">Tees</button>
+        <button class="filter" data-filter="shorts">Shorts</button>
+        <button class="filter" data-filter="accessories">Accessories</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="lookbook">
+      <div class="section-head">
+        <span class="label">@wynwood.kw</span>
+        <h2>THE VIBE</h2>
+      </div>
+      <div class="lookbook-grid">
+        <div class="lookbook-item"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/17765277131.jpeg" alt=""/><span>Billionaire Energy 🤑</span></div>
+        <div class="lookbook-item tall"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/1738771077.jpeg" alt=""/><span>Kuwait Rep 🇰🇼</span></div>
+        <div class="lookbook-item"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg" alt=""/><span>CEO Mode ✌️</span></div>
+        <div class="lookbook-item wide"><img src="https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg" alt=""/><span>Money Drip 💸</span></div>
+      </div>
+      <a href="https://www.instagram.com/wynwood.kw/" target="_blank" rel="noopener" class="btn btn-outline center">FOLLOW @wynwood.kw</a>
+    </section>
+
+    <!-- STORES -->
+    <section class="stores" id="stores">
+      <div class="section-head">
+        <span class="label">03 — VISIT</span>
+        <h2>FLAGSHIP STORES</h2>
+      </div>
+      <div class="store-grid">
+        <article class="store-card">
+          <span>01</span>
+          <h3>Shuwaikh Industrial</h3>
+          <p>Lilly Center, Kuwait</p>
+          <span class="hours">Open 11 AM – 10 PM</span>
+          <a href="https://maps.app.goo.gl/i3sW3SQVm7xeaDK66?g_st=ic" target="_blank" rel="noopener">Directions →</a>
+        </article>
+        <article class="store-card">
+          <span>02</span>
+          <h3>The Avenues Mall</h3>
+          <p>Phase 2, Kuwait</p>
+          <span class="hours">Open 11 AM – 10 PM</span>
+          <a href="https://maps.app.goo.gl/oqT8jjm8tiGTQM7T9?g_st=ic" target="_blank" rel="noopener">Directions →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <h2>NEVER MISS A DROP</h2>
+      <p>First access to new collections. Zero spam.</p>
+      <form id="newsForm" class="news-form">
+        <input type="email" placeholder="your@email.com" required/>
+        <button type="submit" class="btn btn-gold">JOIN</button>
+      </form>
     </section>
   </main>
 
+  <footer class="footer">
+    <div class="footer-brand">WYNWOOD</div>
+    <div class="footer-links">
+      <a href="#shop">Shop</a>
+      <a href="mailto:Wynwoodkw@gmail.com">Contact</a>
+      <a href="https://www.instagram.com/wynwood.kw/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.wynwoodkw.com/" target="_blank" rel="noopener">wynwoodkw.com</a>
+    </div>
+    <p>© 2026 Wynwood Kuwait · KNET · Visa · Mastercard</p>
+  </footer>
+
+  <!-- Cart -->
   <div class="overlay" id="cartOverlay"></div>
   <aside class="cart" id="cartDrawer">
-    <div class="cart-head"><h3>Your Bag</h3><button id="cartClose">&times;</button></div>
-    <div class="cart-body" id="cartItems"></div>
-    <div class="cart-foot" id="cartFooter">
+    <div class="cart-top"><h3>YOUR BAG</h3><button id="cartClose">×</button></div>
+    <div class="cart-list" id="cartItems"></div>
+    <div class="cart-bottom" id="cartFooter">
       <div class="cart-total"><span>Total</span><strong id="cartTotal">KWD 0.000</strong></div>
-      <button class="cta gold full" id="checkoutBtn">Checkout</button>
+      <button class="btn btn-gold full" id="checkoutBtn">CHECKOUT</button>
     </div>
-    <div class="cart-empty" id="cartEmpty"><p>Your bag is empty</p></div>
+    <div class="cart-empty" id="cartEmpty"><p>Your bag is empty</p><a href="#shop" class="btn btn-outline" id="cartShop">SHOP NOW</a></div>
   </aside>
 
-  <div class="modal-bg" id="modalOverlay"></div>
-  <div class="modal" id="productModal">
-    <button class="modal-x" id="modalClose">&times;</button>
-    <div class="modal-visual"><img id="modalImg" src="" alt=""/></div>
-    <div class="modal-detail">
+  <!-- Modal -->
+  <div class="modal-bg" id="modalBg"></div>
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">×</button>
+    <div class="modal-img"><img id="modalImg" src="" alt=""/></div>
+    <div class="modal-body">
       <span id="modalCol"></span>
       <h3 id="modalName"></h3>
       <p id="modalPrice"></p>
-      <div class="sizes" id="sizePicker">
-        <button data-size="S">S</button>
-        <button data-size="M" class="active">M</button>
-        <button data-size="L">L</button>
-        <button data-size="XL">XL</button>
+      <div class="sizes" id="sizes">
+        <button data-sz="S">S</button><button data-sz="M" class="on">M</button>
+        <button data-sz="L">L</button><button data-sz="XL">XL</button>
       </div>
-      <button class="cta gold full" id="modalAdd">Add to Bag</button>
+      <button class="btn btn-gold full" id="modalAdd">ADD TO BAG</button>
     </div>
   </div>
 
   <div class="toast" id="toast"></div>
-  <div class="cursor" id="cursor"><span>view</span></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
   <script src="app.js"></script>
 </body>
 </html>
