@@ -122,11 +122,6 @@ function bindAll() {
     $('#shop').scrollIntoView({ behavior: 'smooth' });
   });
 
-  $$('.collection-card').forEach(c => c.onclick = () => {
-    const b = c.querySelector('.collection-btn');
-    if (b) b.click();
-  });
-
   document.addEventListener('click', e => {
     const card = e.target.closest('.product-card');
     if (card) openModal(+card.dataset.id);
@@ -262,7 +257,7 @@ function initParallax() {
 }
 
 function observeReveal() {
-  const els = $$('.collection-card, .store-card, .lookbook-item, .section-head');
+  const els = $$('.chapter, .store-card, .lookbook-item, .section-head');
   els.forEach(el => el.classList.add('reveal'));
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
