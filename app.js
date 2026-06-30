@@ -1,6 +1,7 @@
-/* ═══════════════════════════════════════════════════════
-   WYNWOOD — Immersive Experience Engine
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   WYNWOOD — Premium Experience Engine
+   Lenis · GSAP · Three.js
+   ═══════════════════════════════════════════════════════════ */
 
 const PRODUCTS = [
   { id: 1, name: 'CEO Tee — Black', collection: 'CEO', category: 'tees', price: 16, image: 'https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg' },
@@ -26,31 +27,247 @@ let activeFilter = 'all';
 let selectedSize = 'M';
 let modalProduct = null;
 let currentScene = 0;
-let mouseX = 0, mouseY = 0;
-let soundOn = false;
+let lenis = null;
 let audioCtx = null;
+let mouse = { x: 0, y: 0, tx: 0, ty: 0 };
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
-document.addEventListener('DOMContentLoaded', () => {
-  initScenes();
-  initParticles();
-  initParallax();
-  initSound();
-  renderProducts();
-  initFilters();
-  initCart();
-  initModal();
-  initDiscoverButtons();
-  updateCartUI();
+/* ── Boot ── */
+window.addEventListener('load', () => {
+  runPreloader(() => {
+    initLenis();
+    initGSAP();
+    initThree();
+    initParticles();
+    initScenes();
+    initCursor();
+    initParallax();
+    initSound();
+    renderProducts();
+    initFilters();
+    initCart();
+    initModal();
+    initCTAs();
+    updateCartUI();
+  });
 });
 
-/* ── Scene navigation ── */
+/* ── Preloader ── */
+function runPreloader(done) {
+  const fill = $('#preloaderFill');
+  const count = $('#preloaderCount');
+  let p = 0;
+  const images = $$('img');
+  let loaded = 0;
+  const total = Math.max(images.length, 1);
+
+  const tick = () => {
+    p += Math.random() * 12 + 3;
+    if (p > 100) p = 100;
+    fill.style.width = p + '%';
+    count.textContent = Math.floor(p);
+    if (p < 100) requestAnimationFrame(tick);
+    else {
+      setTimeout(() => {
+        $('#preloader').classList.add('done');
+        setTimeout(done, 800);
+      }, 300);
+    }
+  };
+
+  images.forEach(img => {
+    if (img.complete) loaded++;
+    else img.addEventListener('load', () => { loaded++; });
+  });
+
+  tick();
+}
+
+/* ── Lenis smooth scroll ── */
+function initLenis() {
+  const experience = document.getElementById('experience');
+  lenis = new Lenis({
+    wrapper: experience,
+    content: experience,
+    duration: 1.6,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    touchMultiplier: 2,
+  });
+
+  lenis.on('scroll', ScrollTrigger.update);
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
+
+/* ── GSAP ScrollTrigger animations ── */
+function initGSAP() {
+  gsap.registerPlugin(ScrollTrigger);
+  const experience = document.getElementById('experience');
+
+  ScrollTrigger.scrollerProxy(experience, {
+    scrollTop(value) {
+      if (arguments.length) lenis.scrollTo(value);
+      return lenis.scroll;
+    },
+    getBoundingClientRect() {
+      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    },
+  });
+
+  $$('.scene').forEach((scene) => {
+    const product = scene.querySelector('.product-hero');
+    if (product) {
+      gsap.fromTo(product,
+        { y: 80, scale: 0.88, opacity: 0 },
+        {
+          y: 0, scale: 1, opacity: 1,
+          duration: 1.6, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: scene,
+            scroller: experience,
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
+          }
+        }
+      );
+    }
+
+    const frames = scene.querySelectorAll('.lux-frame');
+    if (frames.length) {
+      gsap.fromTo(frames,
+        { scale: 0.85, opacity: 0 },
+        {
+          scale: 1, opacity: 1,
+          duration: 1.2, stagger: 0.12, ease: 'power2.out',
+          scrollTrigger: { trigger: scene, scroller: experience, start: 'top 60%', toggleActions: 'play none none reverse' }
+        }
+      );
+    }
+
+    const caption = scene.querySelector('.scene-caption');
+    if (caption) {
+      gsap.fromTo(caption,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 1.1, ease: 'power2.out', delay: 0.2,
+          scrollTrigger: { trigger: scene, scroller: experience, start: 'top 55%', toggleActions: 'play none none reverse' }
+        }
+      );
+    }
+  });
+}
+
+/* ── Three.js ambient background ── */
+function initThree() {
+  const canvas = $('#webgl');
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 5;
+
+  const count = 800;
+  const positions = new Float32Array(count * 3);
+  const sizes = new Float32Array(count);
+  for (let i = 0; i < count; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 20;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+    sizes[i] = Math.random() * 2 + 0.5;
+  }
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+  const mat = new THREE.PointsMaterial({
+    color: 0xc9a050,
+    size: 0.02,
+    transparent: true,
+    opacity: 0.35,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  });
+
+  const points = new THREE.Points(geo, mat);
+  scene.add(points);
+
+  let t = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.001;
+    points.rotation.y = t * 0.3;
+    points.rotation.x = Math.sin(t * 0.5) * 0.1;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+}
+
+/* ── 2D particles for drip scene ── */
+function initParticles() {
+  const canvas = $('#particles');
+  const ctx = canvas.getContext('2d');
+  let pts = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 200; i++) {
+    pts.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2.5 + 0.5,
+      vy: Math.random() * 0.8 + 0.2,
+      vx: (Math.random() - 0.5) * 0.4,
+      a: Math.random(),
+      tw: Math.random() * Math.PI * 2,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (canvas.classList.contains('on')) {
+      pts.forEach(p => {
+        p.y -= p.vy;
+        p.x += p.vx;
+        p.tw += 0.03;
+        if (p.y < 0) { p.y = canvas.height; p.x = Math.random() * canvas.width; }
+        const alpha = p.a * (0.4 + 0.6 * Math.sin(p.tw));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 210, 140, ${alpha})`;
+        ctx.fill();
+      });
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* ── Scene observer ── */
 function initScenes() {
   const scenes = $$('.scene');
   const dots = $('#sceneDots');
-  const experience = $('#experience');
 
   scenes.forEach((scene, i) => {
     const btn = document.createElement('button');
@@ -62,118 +279,104 @@ function initScenes() {
     dots.appendChild(btn);
   });
 
+  const experience = $('#experience');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const idx = [...scenes].indexOf(entry.target);
-      if (idx === -1) return;
+      if (idx < 0) return;
+
       currentScene = idx;
       scenes.forEach((s, i) => s.classList.toggle('active', i === idx));
       dots.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === idx));
 
-      const isLight = entry.target.classList.contains('scene-light') ||
-                      entry.target.classList.contains('scene-float');
-      document.body.classList.toggle('light-scene', isLight);
+      const theme = entry.target.dataset.theme;
+      document.body.classList.toggle('light-theme', theme === 'light');
 
-      const isParticle = entry.target.classList.contains('scene-particles');
-      $('#particles').classList.toggle('active', isParticle);
+      const particles = entry.target.dataset.particles === 'true';
+      $('#particles').classList.toggle('on', particles);
+
+      const num = String(idx + 1).padStart(2, '0');
+      const total = String(scenes.length).padStart(2, '0');
+      $('#sceneCounter').textContent = `${num} — ${total}`;
+      $('#scrollProgress').style.height = ((idx / (scenes.length - 1)) * 100) + '%';
     });
-  }, { root: experience, threshold: 0.55 });
+  }, { root: experience, threshold: 0.5 });
 
   scenes.forEach(s => observer.observe(s));
 
-  // Keyboard nav
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-      e.preventDefault();
-      scrollToScene(Math.min(currentScene + 1, scenes.length - 1));
-    }
-    if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-      e.preventDefault();
-      scrollToScene(Math.max(currentScene - 1, 0));
-    }
+    if (e.key === 'ArrowDown') { e.preventDefault(); scrollToScene(Math.min(currentScene + 1, scenes.length - 1)); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); scrollToScene(Math.max(currentScene - 1, 0)); }
   });
 }
 
 function scrollToScene(index) {
   const scenes = $$('.scene');
-  scenes[index]?.scrollIntoView({ behavior: 'smooth' });
+  const target = scenes[index];
+  if (!target) return;
+  if (lenis) lenis.scrollTo(target, { duration: 1.6 });
+  else target.scrollIntoView({ behavior: 'smooth' });
 }
 
-/* ── Particles (sparkle scene) ── */
-function initParticles() {
-  const canvas = $('#particles');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let animId;
+/* ── Cursor ── */
+function initCursor() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  const cursor = $('#cursor');
+  let cx = 0, cy = 0;
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', (e) => {
+    mouse.tx = e.clientX;
+    mouse.ty = e.clientY;
+  });
 
-  function createParticles() {
-    particles = [];
-    for (let i = 0; i < 120; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speedY: Math.random() * 0.5 + 0.1,
-        speedX: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.6 + 0.2,
-        twinkle: Math.random() * Math.PI * 2,
-      });
-    }
-  }
-  createParticles();
+  const loop = () => {
+    cx += (mouse.tx - cx) * 0.15;
+    cy += (mouse.ty - cy) * 0.15;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+    requestAnimationFrame(loop);
+  };
+  loop();
 
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.y -= p.speedY;
-      p.x += p.speedX;
-      p.twinkle += 0.02;
-      if (p.y < 0) { p.y = canvas.height; p.x = Math.random() * canvas.width; }
-      const alpha = p.opacity * (0.5 + 0.5 * Math.sin(p.twinkle));
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 220, 150, ${alpha})`;
-      ctx.fill();
-    });
-    animId = requestAnimationFrame(draw);
-  }
-  draw();
+  cursor.classList.add('on');
+
+  const hoverables = 'a, button, .product-card, .cta, .filter, .scene-dots button';
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(hoverables)) cursor.classList.add('hover');
+    if (e.target.closest('.product-card')) cursor.querySelector('span').textContent = 'view';
+    else cursor.querySelector('span').textContent = '';
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(hoverables)) cursor.classList.remove('hover');
+  });
 }
 
-/* ── Mouse parallax ── */
+/* ── Parallax ── */
 function initParallax() {
   document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
 
-    $$('[data-parallax]').forEach(el => {
-      const depth = 15;
-      el.style.transform = `translate(${mouseX * depth}px, ${mouseY * depth}px)`;
+    $$('[data-depth]').forEach(el => {
+      const d = +el.dataset.depth || 15;
+      el.style.transform = `translate(${mouse.x * d}px, ${mouse.y * d}px)`;
     });
 
-    $$('.float-card').forEach((card, i) => {
-      const d = (i + 1) * 8;
-      const rot = card.classList.contains('c1') ? -12 : card.classList.contains('c2') ? 8 : 6;
-      card.style.transform = `rotate(${rot}deg) translate(${mouseX * d}px, ${mouseY * d}px)`;
+    $$('.polaroid').forEach((el, i) => {
+      const d = (i + 1) * 10;
+      const rot = el.classList.contains('p1') ? -14 : el.classList.contains('p2') ? 10 : 5;
+      el.style.transform = `rotate(${rot}deg) translate(${mouse.x * d}px, ${mouse.y * d}px)`;
     });
   });
 }
 
-/* ── Ambient sound ── */
+/* ── Sound ── */
 function initSound() {
-  const btn = $('#soundBtn');
-  btn.addEventListener('click', () => {
-    soundOn = !soundOn;
-    btn.classList.toggle('on', soundOn);
-    if (soundOn) startAmbient();
+  $('#soundBtn').addEventListener('click', () => {
+    const btn = $('#soundBtn');
+    const on = btn.classList.toggle('on');
+    if (on) startAmbient();
     else stopAmbient();
   });
 }
@@ -181,43 +384,48 @@ function initSound() {
 function startAmbient() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   if (audioCtx.state === 'suspended') audioCtx.resume();
-  // Soft ambient drone
-  const osc = audioCtx.createOscillator();
+
+  const osc1 = audioCtx.createOscillator();
+  const osc2 = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
   const filter = audioCtx.createBiquadFilter();
-  osc.type = 'sine';
-  osc.frequency.value = 55;
-  filter.type = 'lowpass';
-  filter.frequency.value = 200;
-  gain.gain.value = 0.04;
-  osc.connect(filter).connect(gain).connect(audioCtx.destination);
-  osc.start();
-  window._ambientOsc = osc;
-  window._ambientGain = gain;
+
+  osc1.type = 'sine'; osc1.frequency.value = 55;
+  osc2.type = 'sine'; osc2.frequency.value = 82.5;
+  filter.type = 'lowpass'; filter.frequency.value = 180;
+  gain.gain.value = 0.03;
+
+  osc1.connect(filter);
+  osc2.connect(filter);
+  filter.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc1.start(); osc2.start();
+
+  window._amb = { osc1, osc2, gain };
 }
 
 function stopAmbient() {
-  if (window._ambientGain) {
-    window._ambientGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
-    setTimeout(() => { window._ambientOsc?.stop(); }, 600);
+  if (window._amb?.gain) {
+    window._amb.gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.6);
+    setTimeout(() => { window._amb.osc1?.stop(); window._amb.osc2?.stop(); }, 700);
   }
 }
 
-/* ── Discover buttons → scroll to shop ── */
-function initDiscoverButtons() {
-  $$('.scene-cta[data-scroll]').forEach(btn => {
+/* ── CTAs ── */
+function initCTAs() {
+  $$('.cta[data-scroll], button[data-scroll]').forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
       if (filter) {
         $$('.filter').forEach(f => f.classList.toggle('active', f.dataset.filter === filter));
         applyFilter(filter);
       }
-      $('#shop').scrollIntoView({ behavior: 'smooth' });
+      scrollToScene([...$$('.scene')].findIndex(s => s.id === 'shop'));
     });
   });
 }
 
-/* ── Products ── */
+/* ── Shop ── */
 function renderProducts() {
   $('#productGrid').innerHTML = PRODUCTS.map(p => `
     <article class="product-card" data-id="${p.id}" data-category="${p.category}" data-collection="${p.collection.toLowerCase()}">
@@ -230,9 +438,7 @@ function renderProducts() {
     </article>
   `).join('');
 
-  $$('.product-card').forEach(card => {
-    card.addEventListener('click', () => openModal(+card.dataset.id));
-  });
+  $$('.product-card').forEach(c => c.addEventListener('click', () => openModal(+c.dataset.id)));
   applyFilter(activeFilter);
 }
 
@@ -252,10 +458,7 @@ function applyFilter(filter) {
     const cat = card.dataset.category;
     const col = card.dataset.collection;
     const match = filter === 'all' || cat === filter ||
-      (filter === 'ceo' && col.includes('ceo')) ||
-      (filter === 'billionaire' && col.includes('billionaire')) ||
-      (filter === 'exclusive' && col.includes('exclusive')) ||
-      (filter === 'kuwait' && col.includes('kuwait'));
+      ['ceo','billionaire','exclusive','kuwait'].includes(filter) && col.includes(filter);
     card.classList.toggle('hidden', !match);
   });
 }
@@ -274,7 +477,7 @@ function initModal() {
       selectedSize = btn.dataset.size;
     });
   });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeCart(); } });
 }
 
 function openModal(id) {
@@ -287,23 +490,26 @@ function openModal(id) {
   $('#modalPrice').textContent = 'KWD ' + p.price.toFixed(3);
   $('#productModal').classList.add('open');
   $('#modalOverlay').classList.add('open');
+  document.body.classList.add('modal-open');
+  lenis?.stop();
 }
 
 function closeModal() {
   $('#productModal').classList.remove('open');
   $('#modalOverlay').classList.remove('open');
+  document.body.classList.remove('modal-open');
   modalProduct = null;
+  lenis?.start();
 }
 
 /* ── Cart ── */
 function addToCart(id, size = 'M') {
   const key = id + '-' + size;
-  const existing = cart.find(i => i.key === key);
-  if (existing) existing.qty++;
-  else cart.push({ id, size, key, qty: 1 });
+  const ex = cart.find(i => i.key === key);
+  if (ex) ex.qty++; else cart.push({ id, size, key, qty: 1 });
   localStorage.setItem('wynwood-cart', JSON.stringify(cart));
   updateCartUI();
-  showToast('Added to bag');
+  showToast('Added to bag ✦');
 }
 
 function removeFromCart(key) {
@@ -348,8 +554,7 @@ function updateCartUI() {
         <div class="price">KWD ${(p.price * item.qty).toFixed(3)}</div>
         <div class="size">Size ${item.size}</div>
         <div class="cart-qty">
-          <button onclick="updateQty('${item.key}',-1)">−</button>
-          <span>${item.qty}</span>
+          <button onclick="updateQty('${item.key}',-1)">−</button><span>${item.qty}</span>
           <button onclick="updateQty('${item.key}',1)">+</button>
         </div>
         <button class="cart-remove" onclick="removeFromCart('${item.key}')">Remove</button>
@@ -365,25 +570,31 @@ function updateCartUI() {
 }
 
 function initCart() {
-  $('#cartBtn').addEventListener('click', () => {
-    $('#cartDrawer').classList.add('open');
-    $('#cartOverlay').classList.add('open');
-  });
+  $('#cartBtn').addEventListener('click', openCart);
   $('#cartClose').addEventListener('click', closeCart);
   $('#cartOverlay').addEventListener('click', closeCart);
   $('#checkoutBtn').addEventListener('click', () => window.open('https://www.wynwoodkw.com/cart', '_blank'));
 }
 
+function openCart() {
+  $('#cartDrawer').classList.add('open');
+  $('#cartOverlay').classList.add('open');
+  document.body.classList.add('cart-open');
+  lenis?.stop();
+}
+
 function closeCart() {
   $('#cartDrawer').classList.remove('open');
   $('#cartOverlay').classList.remove('open');
+  document.body.classList.remove('cart-open');
+  lenis?.start();
 }
 
 function showToast(msg) {
   const t = $('#toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  setTimeout(() => t.classList.remove('show'), 2800);
 }
 
 window.updateQty = updateQty;
