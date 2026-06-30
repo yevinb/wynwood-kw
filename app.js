@@ -1,20 +1,20 @@
 /* WYNWOOD — Simple, reliable, works everywhere */
 
 const PRODUCTS = [
-  { id:1, name:'CEO Tee — Black', col:'CEO', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg' },
-  { id:2, name:'CEO Tee — White', col:'CEO', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg' },
+  { id:1, name:'CEO Tee — Black', col:'CEO', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776528414.jpeg' },
+  { id:2, name:'CEO Tee — White', col:'CEO', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776528280.jpeg' },
   { id:3, name:'CEO Short — Black', col:'CEO', cat:'shorts', price:15, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527995.jpeg' },
-  { id:4, name:'Billionaire Energy Tee — Olive', col:'Billionaire Energy', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/17765277131.jpeg' },
-  { id:5, name:'Billionaire Energy Tee — White', col:'Billionaire Energy', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/17765277131.jpeg' },
-  { id:6, name:'Billionaire Energy Hoodie — Navy', col:'Billionaire Energy', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg' },
-  { id:7, name:'Exclusive Hoodie — Black', col:'Exclusive', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg' },
-  { id:8, name:'Exclusive Hoodie — White', col:'Exclusive', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg' },
-  { id:9, name:'Exclusive Tee — Black', col:'Exclusive', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg' },
+  { id:4, name:'Billionaire Energy Tee — Olive', col:'Billionaire Energy', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1782653032.jpeg' },
+  { id:5, name:'Billionaire Energy Tee — White', col:'Billionaire Energy', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1777028386.jpeg' },
+  { id:6, name:'Billionaire Energy Hoodie — Navy', col:'Billionaire Energy', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776526351.jpeg' },
+  { id:7, name:'Exclusive Hoodie — Black', col:'Exclusive', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1759349757.jpeg' },
+  { id:8, name:'Exclusive Hoodie — White', col:'Exclusive', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1759349313.jpeg' },
+  { id:9, name:'Exclusive Tee — Black', col:'Exclusive', cat:'tees', price:16, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1742475513.jpeg' },
   { id:10, name:'Exclusive Short — Grey', col:'Exclusive', cat:'shorts', price:15, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1742474498.jpeg' },
-  { id:11, name:'Kuwait Hoodie — Black', col:'Kuwait', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1738771077.jpeg' },
-  { id:12, name:'Kuwait Hoodie — White', col:'Kuwait', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/17387710771.jpeg' },
-  { id:13, name:'The Club Hoodie — Black', col:'The Club', cat:'hoodies', price:18, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg' },
-  { id:14, name:'Graphics Hoodie — Black', col:'Graphics', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1776527713.jpeg' },
+  { id:11, name:'Kuwait Hoodie — Black', col:'Kuwait', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/17387710773.jpeg' },
+  { id:12, name:'Kuwait Hoodie — White', col:'Kuwait', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1738770818.jpeg' },
+  { id:13, name:'The Club Hoodie — Black', col:'The Club', cat:'hoodies', price:18, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1635923232.jpeg' },
+  { id:14, name:'Graphics Hoodie — Black', col:'Graphics', cat:'hoodies', price:22, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1634709147.jpeg' },
   { id:15, name:'Socks V2', col:'Accessories', cat:'accessories', price:10, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1700689186.jpeg' },
   { id:16, name:'Premium Tote Bag', col:'Accessories', cat:'accessories', price:10, img:'https://wynwoodkw.com/uploads/products/cache/500_700/1738770020.jpeg' },
 ];
@@ -23,6 +23,7 @@ const COLLECTIONS = ['ceo', 'billionaire', 'exclusive', 'kuwait'];
 const CATEGORIES = ['hoodies', 'tees', 'shorts', 'accessories'];
 
 function productCategory(p) {
+  if (p.cat) return p.cat;
   const n = p.name.toLowerCase();
   if (n.includes('hoodie')) return 'hoodies';
   if (n.includes('tee')) return 'tees';
